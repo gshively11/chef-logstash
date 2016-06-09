@@ -81,6 +81,7 @@ action :enable do
       cookbook svc[:templates_cookbook]
       run_template_name svc[:runit_run_template_name]
       log_template_name svc[:runit_log_template_name]
+      restart_on_update false # prevents early restart resulting in error
     end
     new_resource.updated_by_last_action(ri.updated_by_last_action?)
 
